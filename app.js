@@ -4,7 +4,7 @@ const app = express()
 
 const anecdotes = require('./db.json')
 
-// Heroku dynamically sets a port
+// Heroku sets a port dynamically
 const PORT = process.env.PORT || 5000
 
 app.use(express.json())
