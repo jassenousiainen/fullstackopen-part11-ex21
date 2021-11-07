@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.json())
 
-app.get('/health', (req, res) => {
+app.get('/heal', (req, res) => {
   res.send('ok')
 })
 
