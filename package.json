@@ -6,8 +6,8 @@
     "start-prod": "node app.js",
     "build": "react-scripts build",
     "eslint": "eslint \"./**/*.{js,jsx}\"",
-    "eject": "react-scripts eject",
-    "server": "json-server -p3001 --watch db.json"
+    "test:e2e": "cypress run",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^8.7.0",
     "redux-devtools-extension": "^2.13.9",
     "uuid": "^8.3.2"
   }
