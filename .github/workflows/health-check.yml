@@ -2,7 +2,7 @@ name: Periodic healthcheck
 
 on:
   schedule:
-    - cron:  '0 0-23 * * *'
+    - cron:  '0 18 * * 1'
 
 jobs:
   simple_deployment_pipeline:
