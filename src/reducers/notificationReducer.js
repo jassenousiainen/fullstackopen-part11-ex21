@@ -1,11 +1,11 @@
 const notificationReducer = (state = '', action) => {
   switch (action.type) {
-    case 'SET_NOTIFICATION':
-      return action.message
-    case 'CLEAR':
-      return ''
-    default:
-      return state
+  case 'SET_NOTIFICATION':
+    return action.message
+  case 'CLEAR':
+    return ''
+  default:
+    return state
   }
 }
 
@@ -22,7 +22,7 @@ export const clearNotification = () => {
   }
 }
 
-let timeoutID; // global variable to hold timeouts
+let timeoutID // global variable to hold timeouts
 export const setNotificationWithTimeout = (message, secs) => {
   clearTimeout(timeoutID) // clear any existing timeout
 

@@ -22,7 +22,7 @@ const Anecdotes = () => {
   let anecdotes = useSelector(state => {
     if (state.filter === '')
       return state.anecdotes
-    else 
+    else
       return state.anecdotes.filter(anecdote => anecdote.content.toLowerCase().includes(state.filter))
   })
 
@@ -30,7 +30,7 @@ const Anecdotes = () => {
 
   const vote = async (anecdote) => {
     dispatch(voteAnecdote(anecdote))
-    dispatch(setNotificationWithTimeout("You voted anecdote: '" + anecdote.content + "'", 5))
+    dispatch(setNotificationWithTimeout('You voted anecdote: "' + anecdote.content + '"', 5))
   }
 
   return(

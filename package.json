@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "start-prod": "node app.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "eslint": "eslint \"./**/*.{js,jsx}\"",
     "eject": "react-scripts eject",
     "server": "json-server -p3001 --watch db.json"
   },
@@ -43,6 +43,9 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-plugin-jest": "^23.11.0",
+    "eslint-plugin-react": "^7.19.0",
     "redux-devtools-extension": "^2.13.9",
     "uuid": "^8.3.2"
   }
