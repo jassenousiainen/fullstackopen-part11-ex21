@@ -44,7 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
-          PRERELEASE_SUFFIX: ""
+          PRERELEASE_SUFFIX: false
       - if: ${{ job.status == 'success' && !contains(join(github.event.commits.*.message), '#skip') }}
         name: Telegram success notification
         uses: appleboy/telegram-action@master
