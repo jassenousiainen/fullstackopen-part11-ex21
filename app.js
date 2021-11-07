@@ -41,7 +41,6 @@ app.put('/anecdotes/:id', (req, res) => {
   }
 })
 
-
 app.use(express.static('build'))
 
 app.listen(PORT, () => {
