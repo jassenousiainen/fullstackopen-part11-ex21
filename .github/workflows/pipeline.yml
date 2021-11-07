@@ -44,3 +44,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+      - if: ${{ job.status == 'success' && !contains(join(github.event.commits.*.message), '#skip') }}
+        name: Telegram success notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_GROUP }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: A new version deployed to https://cryptic-woodland-92575.herokuapp.com/
+      - if: ${{ failure() }}
+        name: Telegram failure notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_GROUP }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            GitHub Actions failed on ${{ github.event_name }} to ${{ github.repository }}.
+            Commit ${{ github.sha }} by ${{ github.actor }}.
