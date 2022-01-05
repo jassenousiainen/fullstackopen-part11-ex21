@@ -4,7 +4,7 @@ import { filterChange } from '../reducers/filterReducer'
 
 const Filter = (props) => (
   <div style={{ marginBottom: 10 }}>
-    filter <input onChange={(ev) => props.filterChange(ev.target.value)} />
+    <input onChange={(ev) => props.filterChange(ev.target.value)} placeholder='Filter'/>
   </div>
 )
 

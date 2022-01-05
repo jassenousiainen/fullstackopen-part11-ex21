@@ -9,7 +9,7 @@ describe('Anecdotes', function() {
   it('loads anecdote correctly and it can be voted', function() {
     cy.visit('http://localhost:5000')
     cy.contains('If it hurts, do it more often')
-    cy.get(':nth-child(2) > button').click()
-    cy.get(':nth-child(4) > :nth-child(2)').contains('has 1')
+    cy.get(':nth-child(1) > .voting-container > .voting > .vote').click()
+    cy.get(':nth-child(1) > .voting-container > .voting > .votes > p').contains('1')
   })
 })

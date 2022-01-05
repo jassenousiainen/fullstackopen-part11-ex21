@@ -5,6 +5,7 @@ import Notification from './components/Notification'
 import Filter from './components/Filter'
 import { initializeAnecdotes } from './reducers/anecdoteReducer'
 import { useDispatch } from 'react-redux'
+import './css/App.css'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -15,10 +16,15 @@ const App = () => {
   return (
     <div>
       <Notification />
-      <h2>Anecdotes</h2>
-      <Filter />
-      <AnecdoteList />
-      <AnecdoteForm />
+      <section>
+        <h2>Anecdotes</h2>
+        <Filter />
+        <AnecdoteList />
+      </section>
+      <section>
+        <h2>create new</h2>
+        <AnecdoteForm />
+      </section>
     </div>
   )
 }

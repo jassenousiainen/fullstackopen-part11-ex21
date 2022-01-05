@@ -1,0 +1,148 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px;
+  border-color: var(--gray-light);
+}
+
+.voting-container {
+  flex-basis: 45px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  position: relative;
+}
+
+.voting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  outline: solid 1px;
+  outline-color: var(--blue);
+  border-radius: 17px;
+}
+
+.vote {
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--blue);
+  outline: none;
+  border: none;
+  z-index: 1;
+    
+}
+.vote .caret-l,.vote .caret-r {
+  display: block;
+  position: absolute;
+  top: 10px;
+  width: 12px;
+  height: 3px;
+  background-color: white;
+}
+.vote .caret-l {
+  left: 4.5px;
+  transform: rotate(-45deg);
+  border-radius: 3px 0 0 3px;
+}
+.vote .caret-r {
+  right: 4.5px;
+  transform: rotate(45deg);
+  border-radius: 0 3px 3px 0;
+}
+.vote:hover {
+  cursor: pointer;
+  background-color: var(--darkblue);
+}
+
+/* --- Shooting rays on button click --- */
+/* implementation basis: https://www.screenfeed.fr/blog/css3-animation-on-click-without-js-0828/ */
+.ray {
+  display: block;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange);
+  border-radius: 6px;
+}
+
+.vote:not(:active) ~ .ray {
+  transition: width .3s step-end;
+}
+.vote:active ~ .ray {
+  width: 17px;
+  transition: width .3s step-start;
+}
+
+.vote:not(:active) ~ .ray.r1 {
+  animation: anim-r1 .3s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.vote:not(:active) ~ .ray.r2 {
+  animation: anim-r2 .3s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.vote:not(:active) ~ .ray.r3 {
+  animation: anim-r3 .3s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.vote:not(:active) ~ .ray.r4 {
+  animation: anim-r4 .3s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.vote:not(:active) ~ .ray.r5 {
+  animation: anim-r5 .3s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+
+@keyframes anim-r1 {
+	from { opacity: 1;  transform: rotate(30deg); }
+	50%  { opacity: 1; }
+	to   { opacity: 0; transform: rotate(30deg) translateX(-40px); }
+}
+@keyframes anim-r2 {
+	from { opacity: 1;  transform: rotate(60deg); }
+	50%  { opacity: 1; }
+	to   { opacity: 0; transform: rotate(60deg) translateX(-40px); }
+}
+@keyframes anim-r3 {
+	from { opacity: 1;  transform: rotate(90deg); }
+	50%  { opacity: 1; }
+	to   { opacity: 0; transform: rotate(90deg) translateX(-40px); }
+}
+@keyframes anim-r4 {
+	from { opacity: 1;  transform: rotate(120deg); }
+	50%  { opacity: 1; }
+	to   { opacity: 0; transform: rotate(120deg) translateX(-40px); }
+}
+@keyframes anim-r5 {
+	from { opacity: 1;  transform: rotate(150deg); }
+	50%  { opacity: 1; }
+	to   { opacity: 0; transform: rotate(150deg) translateX(-40px); }
+}
+/* ------------------- */
+
+.votes {
+  width: 28px;
+  height: 25px;
+  background-color: white;
+}
+.votes p {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  color: var(--blue);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.04rem;
+  font-weight: bold;
+}
