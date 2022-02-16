@@ -18,7 +18,7 @@ app.get('/version', (req, res) => {
 })
 
 app.get('/anecdotes', (req, res) => {
-  res.send(anecdotes) // change this string to ensure a new version deployed
+  res.send(anecdotes)
 })
 
 app.post('/anecdotes', (req, res) => {

@@ -2,18 +2,31 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { voteAnecdote } from '../reducers/anecdoteReducer'
 import { setNotificationWithTimeout } from '../reducers/notificationReducer'
+import '../css/AnecdoteList.css'
 
 const Anecdote = ({ anecdote, handleClick }) => {
   return(
-    <>
+    <li>
+      <div className='voting-container'>
+        <div className='voting'>
+          <button onClick={handleClick} className='vote'>
+            <span className='caret-l'></span>
+            <span className='caret-r'></span>
+          </button>
+          <span className='ray r1'></span>
+          <span className='ray r2'></span>
+          <span className='ray r3'></span>
+          <span className='ray r4'></span>
+          <span className='ray r5'></span>
+          <div className='votes'>
+            <p>{anecdote.votes}</p>
+          </div>
+        </div>
+      </div>
       <div>
         {anecdote.content}
       </div>
-      <div>
-        has {anecdote.votes}
-        <button onClick={handleClick}>vote</button>
-      </div>
-    </>
+    </li>
   )
 }
 
@@ -34,7 +47,7 @@ const Anecdotes = () => {
   }
 
   return(
-    <div>
+    <ul>
       {anecdotes.map(anecdote =>
         <Anecdote
           key={anecdote.id}
@@ -42,7 +55,7 @@ const Anecdotes = () => {
           handleClick={() => vote(anecdote)}
         />
       )}
-    </div>
+    </ul>
   )
 }
 

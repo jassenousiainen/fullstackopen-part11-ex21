@@ -14,13 +14,13 @@ const AnecdoteForm = (props) => {
   }
 
   return (
-    <>
-      <h2>create new</h2>
-      <form onSubmit={addAnecdote}>
-        <div><input name="anecdote" /></div>
-        <button type="submit">create</button>
-      </form>
-    </>
+    <form onSubmit={addAnecdote}>
+      <div>
+        <input name="anecdote" />
+        <br/>
+        <button type="submit" className="btn">create</button>
+      </div>
+    </form>
   )
 }
 
